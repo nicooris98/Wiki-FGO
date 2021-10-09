@@ -17,7 +17,6 @@ export class ServantComponent implements OnInit {
     atk: 0,
     hp: 0
   };
-  pruebas: string[] = [];
 
   constructor() { }
 
@@ -26,9 +25,15 @@ export class ServantComponent implements OnInit {
   }
 
   parseStrJson(){
-    Object.keys(JSON.parse(this.servantStr)).forEach(key =>{
-      this.pruebas.push(key + ' - ' + JSON.parse(this.servantStr)[key]);
-    });
+    //console.log('parseStrJson()')
+    var result = JSON.parse(JSON.stringify(this.servantStr));
+    //console.log(result);
+    this.personaje.id = result['collectionNo'];
+    this.personaje.name = result['name'];
+    this.personaje.rarity = result['rarity'];
+    this.personaje.class = result['className'];
+    this.personaje.atk = result['atkMax'];
+    this.personaje.hp = result['hpMax'];
   }
 
 }
