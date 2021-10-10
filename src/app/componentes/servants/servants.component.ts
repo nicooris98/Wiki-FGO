@@ -12,14 +12,14 @@ export class ServantsComponent implements OnInit {
 
   @Input() parametro: string = '';
 
-  servants: Servant = {
+  /* servants: Servant = {
     id: 0,
     name: '',
     rarity: '',
     class: '',
     atk: 0,
     hp: 0
-  };
+  }; */
   servs: string = '';
   todos: string[] = [];
 

@@ -5,4 +5,6 @@ export interface Servant {
     class: string;
     atk: number;
     hp: number;
+    cards: string[];
+    img: string;
 }

@@ -15,7 +15,9 @@ export class ServantComponent implements OnInit {
     rarity: '',
     class: '',
     atk: 0,
-    hp: 0
+    hp: 0,
+    cards: [],
+    img: ''
   };
 
   constructor() { }
@@ -34,6 +36,8 @@ export class ServantComponent implements OnInit {
     this.personaje.class = result['className'];
     this.personaje.atk = result['atkMax'];
     this.personaje.hp = result['hpMax'];
+    this.personaje.cards = result['cards'];
+    this.personaje.img = result['extraAssets']['charaGraph']['ascension']['1'];
   }
 
 }
