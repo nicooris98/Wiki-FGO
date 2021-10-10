@@ -9,10 +9,11 @@ Ejecutar `ng serve` o `ng serve -o` para que lo abra directamente. Se abre en `h
 ## Caracterisitcas
 
 - Busca servants por nombre o por clase.
+- Muestra la primera ascension y cartas del servant.
 
 ## Limitaciones
 
-- De momento solo muestra el id, nombre, clase, ataque a nivel 90 y vida al nivel 90.
+- De momento solo muestra el id, nombre, clase, ataque a nivel maximo y vida al nivel maximo.
 
 ## Code scaffolding
 
