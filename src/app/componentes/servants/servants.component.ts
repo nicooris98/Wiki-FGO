@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ServantService } from 'src/app/servicios/servant.service';
 import { Servant } from 'src/app/servant';
+import { BuscarService } from 'src/app/servicios/buscar.service';
 
 @Component({
   selector: 'app-servants',
@@ -8,6 +9,8 @@ import { Servant } from 'src/app/servant';
   styleUrls: ['./servants.component.css']
 })
 export class ServantsComponent implements OnInit {
+
+  @Input() parametro: string = '';
 
   servants: Servant = {
     id: 0,
@@ -20,9 +23,18 @@ export class ServantsComponent implements OnInit {
   servs: string = '';
   todos: string[] = [];
 
-  constructor(private personajes: ServantService) { }
+  constructor(
+    private personajes: ServantService,
+    private buscar: BuscarService
+    ) { }
 
   ngOnInit(): void {
+    //this.getData();
+  }
+
+  ngOnChanges(): void{
+    /* console.log(this.parametro);
+    console.log(this.buscar.getParametro()); */
     this.getData();
   }
 
@@ -34,8 +46,9 @@ export class ServantsComponent implements OnInit {
           //console.log(JSON.stringify(data));
           var result = []; 
           result = JSON.parse(JSON.stringify(data));
+          var filtro = [];
           for (let index = 0; index < result.length; index++) {
-            delete result[index]['id'];
+            /* delete result[index]['id'];
             delete result[index]['id'];
             delete result[index]['ruby'];
             delete result[index]['type'];
@@ -77,7 +90,13 @@ export class ServantsComponent implements OnInit {
             delete result[index]['classPassive'];
             delete result[index]['extraPassive'];
             delete result[index]['appendPassive'];
-            delete result[index]['noblePhantasms'];
+            delete result[index]['noblePhantasms']; */
+            //if(result[index]['name'].match('/.*'+this.buscar.getParametro()+'.*/')){
+            if(result[index]['name'].includes(this.buscar.getParametro()) || result[index]['className'].includes(this.buscar.getParametro())){
+              /* console.log(result[index]['name']);
+              console.log(index); */
+              filtro.push(result[index]);
+            }
           }
           /* delete result['id'];
           delete result['ruby'];
@@ -121,7 +140,8 @@ export class ServantsComponent implements OnInit {
           delete result['extraPassive'];
           delete result['appendPassive'];
           delete result['noblePhantasms']; */
-          this.todos = result;
+          //this.todos = result;
+          this.todos = filtro;
           //console.log(result);
         },
         err => {

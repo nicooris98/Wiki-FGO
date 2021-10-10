@@ -1,0 +1,5 @@
+<div class="buscador">
+    <input type="text" class="in-bus" (keyup.enter)="buscarServant(buscador.value)" placeholder="Ingrese Parametro" #buscador>
+    <input type="button" class="but-bus" (click)="buscarServant(buscador.value)" value="Buscar">
+</div>
+<app-servants [parametro]="pasarParametro"></app-servants>
