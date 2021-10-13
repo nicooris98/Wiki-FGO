@@ -10,6 +10,7 @@ Ejecutar `ng serve` o `ng serve -o` para que lo abra directamente. Se abre en `h
 
 - Busca servants por nombre o por clase.
 - Muestra la primera ascension y cartas del servant.
+- Busca craft essences por nombre y muestra su imagen.
 
 ## Limitaciones
 
