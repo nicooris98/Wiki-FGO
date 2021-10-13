@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BuscarService } from 'src/app/servicios/buscar.service';
+import { ServantService } from 'src/app/servicios/servant.service';
 
 @Component({
   selector: 'app-buscador',
@@ -8,17 +8,21 @@ import { BuscarService } from 'src/app/servicios/buscar.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  pasarParametro: string = '';
+  pasarParametro: string = '';//Es el parametro que paso a servants.component
 
-  constructor(private buscar: BuscarService) { }
+  constructor(private servant: ServantService) 
+  {
+    this.servant.setParametro('***');
+    this.servant.setServant();
+  }
 
   ngOnInit(): void {
   }
 
   buscarServant(parametro: string): void{
     //console.log(parametro);
-    this.buscar.setParametro(parametro);
-    this.pasarParametro = this.buscar.getParametro();
+    this.servant.setParametro(parametro);
+    this.pasarParametro = this.servant.getParametro();
   }
 
 }

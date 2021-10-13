@@ -1,10 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse
-} from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
 
 // Set the http options
@@ -19,13 +15,38 @@ const httpOptions = {
 export class ServantService {
 
   //servantData = 'https://raw.githubusercontent.com/WeebMogul/FGO-Wikia-Servant-Extractor/master/Total%20Servant%20Database.csv';
-  servantData = 'https://api.atlasacademy.io/export/JP/nice_servant_lang_en.json';
+  //servantData = 'https://api.atlasacademy.io/export/JP/nice_servant_lang_en.json';
+  servantData = 'https://api.atlasacademy.io/export/NA/nice_servant.json';
+  craftData = 'https://api.atlasacademy.io/export/NA/nice_equip.json';
+  commandData = 'https://api.atlasacademy.io/export/NA/nice_command_code.json';
+  data = '';
+  parametro: string = '0';
 
   constructor(private http: HttpClient) { }
 
-  getInfo(){
-    return this.http.get(this.servantData);
+  setParametro(valor: string): void{
+    this.parametro = valor;
   }
+
+  getParametro(): string{
+    return this.parametro;
+  }
+
+  setServant(): void{
+    this.data = this.servantData;
+  }
+
+  setCraft(): void{
+    this.data = this.craftData;
+  }
+
+  setCommand(): void{
+    this.data = this.commandData;
+  }
+
+  /* getInfo(){
+    return this.http.get(this.data);
+  } */
 
   /**
    * Function to handle error when the server return an error
@@ -64,7 +85,7 @@ export class ServantService {
   public getListOfGroup(): Observable<any> {
 
     // Call the http GET
-    return this.http.get(this.servantData, httpOptions).pipe(
+    return this.http.get(this.data, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );

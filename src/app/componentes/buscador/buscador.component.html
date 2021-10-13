@@ -1,5 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="buscador">
     <input type="text" class="in-bus" (keyup.enter)="buscarServant(buscador.value)" placeholder="Ingrese Parametro" #buscador>
-    <input type="button" class="but-bus" (click)="buscarServant(buscador.value)" value="Buscar">
-</div>
+    <button class="but-bus" (click)="buscarServant(buscador.value)"><i class="fa fa-search"></i></button>
+</div><br>
 <app-servants [parametro]="pasarParametro"></app-servants>

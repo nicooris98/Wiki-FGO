@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="buscador">
+    <input type="text" class="in-bus" (keyup.enter)="buscarCe(buscador.value)" placeholder="Ingrese Parametro" #buscador>
+    <button class="but-bus" (click)="buscarCe(buscador.value)"><i class="fa fa-search"></i></button>
+</div><br>
+<app-ces [parametro]="pasarParametro"></app-ces>

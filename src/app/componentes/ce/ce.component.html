@@ -1,0 +1,15 @@
+<div class="container">
+    <!-- <div class="column"> -->
+      <div class="row">
+        <div class="col-sm-6">
+          <p><b>ID:</b> {{ carta.id }}</p>
+          <p><b>Nombre:</b> {{ carta.name }}</p>
+          <p><b>Rareza:</b> {{ carta.rarity }}*</p>
+          <p><b>Costo:</b> {{ carta.cost}}</p>
+          <p><b>Nivel maximo:</b> {{ carta.lvMax }}</p>
+          <p><b>Detalle:</b> {{ carta.detail }}</p>
+        </div>
+        <div class="col-sm-6">
+          <img [src]="carta.img" class="img-fluid" width="250px" height="400px" alt="">
+        </div>
+      </div>

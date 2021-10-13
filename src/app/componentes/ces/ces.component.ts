@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ServantService } from 'src/app/servicios/servant.service';
 
 @Component({
-  selector: 'app-servants',
-  templateUrl: './servants.component.html',
-  styleUrls: ['./servants.component.css']
+  selector: 'app-ces',
+  templateUrl: './ces.component.html',
+  styleUrls: ['./ces.component.css']
 })
-export class ServantsComponent implements OnInit {
+export class CesComponent implements OnInit {
 
   @Input() parametro: string = '';
 
@@ -14,7 +14,7 @@ export class ServantsComponent implements OnInit {
   todos: string[] = [];
 
   constructor(
-    private personajes: ServantService
+    private cartas: ServantService
     ) { }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class ServantsComponent implements OnInit {
   }
 
   getData(){
-    this.personajes
+    this.cartas
       .getListOfGroup()
       .subscribe(
         data => {
@@ -34,7 +34,7 @@ export class ServantsComponent implements OnInit {
           var filtro = [];
           for (let index = 0; index < result.length; index++) {
             //Si encuentra coincidencias las pone en el array filtro
-            if(result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase()) || result[index]['className'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
+            if(result[index]['name'].toLowerCase().includes(this.cartas.getParametro())){
               filtro.push(result[index]);
             }
           }
@@ -45,5 +45,4 @@ export class ServantsComponent implements OnInit {
         }
     );
   }
-
 }
