@@ -5,5 +5,7 @@ export interface Craft {
     cost: number,
     lvMax: number,
     detail: string,
-    img: string
+    img: string,
+    atkMax: number,
+    hpMax: number
 }

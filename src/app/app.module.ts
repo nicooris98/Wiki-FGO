@@ -15,6 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
+import { DetCeComponent } from './componentes/det-ce/det-ce.component';
+import { DetCoComponent } from './componentes/det-co/det-co.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     InicioComponent,
     CeComponent,
     CommandComponent,
-    DetalleComponent
+    DetalleComponent,
+    DetCeComponent,
+    DetCoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Command } from 'src/app/command';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DetCoComponent } from '../det-co/det-co.component';
 
 @Component({
   selector: 'app-command',
@@ -17,7 +19,9 @@ export class CommandComponent implements OnInit {
     img: ''
   }
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.parseStrJson();
@@ -33,6 +37,20 @@ export class CommandComponent implements OnInit {
     this.command.rarity = result['rarity'];
     this.command.detail = result['skills']['0']['detail'];
     this.command.img = result['extraAssets']['charaGraph']['cc'][img];
+  }
+
+  verDetalle(): void {
+    this.dialog.open(DetCoComponent, {
+      width      : '100%',
+      maxWidth   : '600px',
+      height     : 'auto',
+      hasBackdrop: true,
+      maxHeight  : '700px',
+      data: {
+        name: this.command.name,
+        detail: this.command.detail
+      }
+    });
   }
 
 }

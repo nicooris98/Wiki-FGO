@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Craft } from 'src/app/craft';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DetCeComponent } from '../det-ce/det-ce.component';
 
 @Component({
   selector: 'app-ce',
@@ -16,10 +18,14 @@ export class CeComponent implements OnInit {
     cost: 0,
     lvMax: 0,
     detail: '',
-    img: ''
+    img: '',
+    atkMax: 0,
+    hpMax: 0
   };
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.parseStrJson();
@@ -35,8 +41,27 @@ export class CeComponent implements OnInit {
     this.carta.rarity = result['rarity'];
     this.carta.cost = result['cost'];
     this.carta.lvMax = result['lvMax'];
+    this.carta.atkMax = result['atkMax'];
+    this.carta.hpMax = result['hpMax'];
     this.carta.detail = result['skills']['0']['detail'];
     this.carta.img = result['extraAssets']['charaGraph']['equip'][img];
+  }
+
+  verDetalle(): void {
+    this.dialog.open(DetCeComponent, {
+      width      : '100%',
+      maxWidth   : '600px',
+      height     : 'auto',
+      hasBackdrop: true,
+      maxHeight  : '700px',
+      data: {
+        name: this.carta.name,
+        lvMax: this.carta.lvMax,
+        atkMax: this.carta.atkMax,
+        hpMax: this.carta.hpMax,
+        detail: this.carta.detail
+      }
+    });
   }
 
 }

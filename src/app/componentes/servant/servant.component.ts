@@ -16,8 +16,8 @@ export class ServantComponent implements OnInit {
     name: '',
     rarity: '',
     class: '',
-    atk: 0,
-    hp: 0,
+    atkMax: 0,
+    hpMax: 0,
     np: [],
     cards: [],
     img: '',
@@ -40,8 +40,8 @@ export class ServantComponent implements OnInit {
     this.personaje.name = result['name'];
     this.personaje.rarity = result['rarity'];
     this.personaje.class = result['className'];
-    this.personaje.atk = result['atkMax'];
-    this.personaje.hp = result['hpMax'];
+    this.personaje.atkMax = result['atkMax'];
+    this.personaje.hpMax = result['hpMax'];
     this.personaje.cards = result['cards'];
     this.personaje.img = result['extraAssets']['charaGraph']['ascension']['1'];
     this.personaje.np = result['noblePhantasms'];
@@ -60,7 +60,9 @@ export class ServantComponent implements OnInit {
         name: this.personaje.name,
         cards: this.personaje.cards,
         np: this.personaje.np,
-        skills: this.personaje.skills
+        skills: this.personaje.skills,
+        atkMax: this.personaje.atkMax,
+        hpMax: this.personaje.hpMax
       }
     });
   }

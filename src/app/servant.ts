@@ -3,8 +3,8 @@ export interface Servant {
     name: string;
     rarity: string;
     class: string;
-    atk: number;
-    hp: number;
+    atkMax: number;
+    hpMax: number;
     np: any[],
     cards: string[];
     img: string;

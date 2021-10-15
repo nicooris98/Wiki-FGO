@@ -9,7 +9,7 @@
           <p><b>Nombre:</b> {{ command.name }}</p>
           <p><b>Rareza:</b> {{ command.rarity }}*</p>
           <!-- <p><b>Detalle:</b> {{ command.detail }}</p> -->
-          <input type="button" class="btn-det" value="Detalle">
+          <input type="button" (click)="verDetalle()" class="btn-det" value="Detalle">
         </div>
         
       </div>
