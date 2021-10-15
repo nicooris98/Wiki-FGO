@@ -11,7 +11,31 @@ body {
   position: relative;
   width: auto;
 }
-.ul-blan {
+.ser {
+  background-color: rgba(98, 122, 110, 0.8);
+  margin: auto;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+}
+.ce {
+  background-color: rgba(96, 114, 155, 0.8);
+  margin: auto;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+}
+.co {
+  background-color: rgba(109, 84, 84, 0.8);
+  margin: auto;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+}
+.fondo-blan {
   background-color: white;
 }
 .vertical-line{

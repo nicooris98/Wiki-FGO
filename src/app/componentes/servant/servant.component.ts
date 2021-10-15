@@ -20,7 +20,8 @@ export class ServantComponent implements OnInit {
     hp: 0,
     np: [],
     cards: [],
-    img: ''
+    img: '',
+    skills: []
   };
 
   constructor(
@@ -44,20 +45,22 @@ export class ServantComponent implements OnInit {
     this.personaje.cards = result['cards'];
     this.personaje.img = result['extraAssets']['charaGraph']['ascension']['1'];
     this.personaje.np = result['noblePhantasms'];
+    this.personaje.skills = result['skills'];
   }
 
   verDetalle(): void {
     //console.log(this.personaje);
     this.dialog.open(DetalleComponent, {
       width      : '100%',
-      maxWidth   : '400px',
+      maxWidth   : '600px',
       height     : 'auto',
       hasBackdrop: true,
       maxHeight  : '700px',
       data: {
         name: this.personaje.name,
         cards: this.personaje.cards,
-        np: this.personaje.np
+        np: this.personaje.np,
+        skills: this.personaje.skills
       }
     });
   }

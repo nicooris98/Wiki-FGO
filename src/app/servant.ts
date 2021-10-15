@@ -8,4 +8,5 @@ export interface Servant {
     np: any[],
     cards: string[];
     img: string;
+    skills: any[];
 }
