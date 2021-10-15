@@ -1,4 +1,19 @@
 <div class="container">
-    <h3>Cantidad de coincidencias: {{ this.todos.length }}</h3>
-</div><br>
-<app-servant *ngFor="let servant of todos" [servantStr]="servant"></app-servant> 
+    <h3>Cantidad de coincidencias: {{ this.todosServ.length + this.todosCraft.length + this.todosComm.length }}</h3>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="titulo"><h3>Servants</h3></div>
+            <app-servant *ngFor="let servant of todosServ" [servantStr]="servant"></app-servant><br>
+        </div>
+        <div class="col-sm-4">
+            <div class="titulo"><h3>Craft Essences</h3></div>
+            <app-ce *ngFor="let craft of todosCraft" [ceStr]="craft"></app-ce><br>
+        </div>
+        <div class="col-sm-4">
+            <div class="titulo"><h3>Command Codes</h3></div>
+            <app-command *ngFor="let com of todosComm" [commandStr]="com"></app-command>
+        </div>
+    </div>
+</div>

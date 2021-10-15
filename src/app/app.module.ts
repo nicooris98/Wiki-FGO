@@ -8,12 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServantComponent } from './componentes/servant/servant.component';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
-import { BuscadorCeComponent } from './componentes/buscador-ce/buscador-ce.component';
-import { CesComponent } from './componentes/ces/ces.component';
 import { CeComponent } from './componentes/ce/ce.component';
-import { BuscadorCoComponent } from './componentes/buscador-co/buscador-co.component';
 import { CommandComponent } from './componentes/command/command.component';
-import { CommandsComponent } from './componentes/commands/commands.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog } from '@angular/material/dialog';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DetalleComponent } from './componentes/detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -22,19 +23,22 @@ import { CommandsComponent } from './componentes/commands/commands.component';
     ServantComponent,
     BuscadorComponent,
     InicioComponent,
-    BuscadorCeComponent,
-    CesComponent,
     CeComponent,
-    BuscadorCoComponent,
     CommandComponent,
-    CommandsComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    MatDialog,
+    OverlayModule,
+    MatDialogModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

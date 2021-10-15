@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{ data.name }}</h1>
+<div mat-dialog-content>
+  Cartas:
+  <ul class="ul-blan">
+    <li *ngFor="let carta of data.cards" class="{{ carta }}">
+      <span class="vertical-line"></span> {{ carta }}
+    </li>
+  </ul>
+  Noble Phantasm:
+  <ul class="ul-blan">
+    <li class="{{ data.np[0].card }} width-100">
+      <p class="text-centro">{{ data.np[0].name }}</p>
+    </li>
+    <li *ngFor="let np of data.np">
+      <p>Rango: {{ np.rank }}</p>
+      <p>Descripcion: {{ np.detail }}</p>
+    </li>
+  </ul>
+</div>

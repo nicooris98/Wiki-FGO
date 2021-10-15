@@ -13,13 +13,13 @@ export class BuscadorComponent implements OnInit {
   constructor(private servant: ServantService) 
   {
     this.servant.setParametro('***');
-    this.servant.setServant();
+    /* this.servant.setServant(); */
   }
 
   ngOnInit(): void {
   }
 
-  buscarServant(parametro: string): void{
+  buscar(parametro: string): void{
     //console.log(parametro);
     this.servant.setParametro(parametro);
     this.pasarParametro = this.servant.getParametro();

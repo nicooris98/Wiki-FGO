@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Servant } from 'src/app/servant';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DetalleComponent } from '../detalle/detalle.component';
 
 @Component({
   selector: 'app-servant',
@@ -16,11 +18,14 @@ export class ServantComponent implements OnInit {
     class: '',
     atk: 0,
     hp: 0,
+    np: [],
     cards: [],
     img: ''
   };
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.parseStrJson();
@@ -38,6 +43,23 @@ export class ServantComponent implements OnInit {
     this.personaje.hp = result['hpMax'];
     this.personaje.cards = result['cards'];
     this.personaje.img = result['extraAssets']['charaGraph']['ascension']['1'];
+    this.personaje.np = result['noblePhantasms'];
+  }
+
+  verDetalle(): void {
+    //console.log(this.personaje);
+    this.dialog.open(DetalleComponent, {
+      width      : '100%',
+      maxWidth   : '400px',
+      height     : 'auto',
+      hasBackdrop: true,
+      maxHeight  : '700px',
+      data: {
+        name: this.personaje.name,
+        cards: this.personaje.cards,
+        np: this.personaje.np
+      }
+    });
   }
 
 }

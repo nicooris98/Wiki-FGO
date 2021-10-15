@@ -1,15 +1,17 @@
-<div class="container">
+<div class="container carta">
     <!-- <div class="column"> -->
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-1">
+          <img [src]="carta.img" class="img-fluid" width="90px" height="175px" alt="">
+        </div>
+        <div class="col-sm-11">
           <p><b>ID:</b> {{ carta.id }}</p>
           <p><b>Nombre:</b> {{ carta.name }}</p>
           <p><b>Rareza:</b> {{ carta.rarity }}*</p>
           <p><b>Costo:</b> {{ carta.cost}}</p>
           <p><b>Nivel maximo:</b> {{ carta.lvMax }}</p>
           <p><b>Detalle:</b> {{ carta.detail }}</p>
+          <input type="button" class="btn-det" value="Detalle">
         </div>
-        <div class="col-sm-6">
-          <img [src]="carta.img" class="img-fluid" width="250px" height="400px" alt="">
-        </div>
+        
       </div>

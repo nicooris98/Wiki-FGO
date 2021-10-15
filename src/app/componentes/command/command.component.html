@@ -1,1 +1,15 @@
-<p>command works!</p>
+<div class="container carta">
+    <!-- <div class="column"> -->
+      <div class="row">
+        <div class="col-sm-1">
+          <img [src]="command.img" class="img-fluid" width="90px" height="175px" alt="">
+        </div>
+        <div class="col-sm-11">
+          <p><b>ID:</b> {{ command.id }}</p>
+          <p><b>Nombre:</b> {{ command.name }}</p>
+          <p><b>Rareza:</b> {{ command.rarity }}*</p>
+          <p><b>Detalle:</b> {{ command.detail }}</p>
+          <input type="button" class="btn-det" value="Detalle">
+        </div>
+        
+      </div>

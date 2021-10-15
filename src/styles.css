@@ -8,6 +8,28 @@ body {
   margin: auto;
   text-align: center;
   border-radius: 12px;
+  position: relative;
+  width: auto;
+}
+.ul-blan {
+  background-color: white;
+}
+.vertical-line{
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  margin: auto;
+  height: 10px;
+}
+.text-centro{
+  text-align: center;
+}
+.width-100{
+  width: 100%;
+}
+.titulo {
+  background-color: rgba(128, 128, 128, .8);
+  text-align: center;
+  border-radius: 12px;
 }
 .buscador {
   text-align: center;
@@ -103,3 +125,12 @@ li a:hover {
 .active {
   background-color: #4caf50;
 }
+.carta {
+  font-size: 10px;
+  text-align: left;
+}
+.btn-det {
+  border-radius: 12px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
