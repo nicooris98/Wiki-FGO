@@ -53,6 +53,21 @@ body {
 .width-100 {
   width: 100%;
 }
+.btn-largo {
+  display: block;
+  width: 100%;
+  padding: 14px 28px;
+  text-align: center;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+.img-abajo {
+  margin-bottom: 20px;
+}
 .titulo {
   background-color: rgba(128, 128, 128, 0.8);
   text-align: center;

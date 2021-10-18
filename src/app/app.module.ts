@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 import { DetCeComponent } from './componentes/det-ce/det-ce.component';
 import { DetCoComponent } from './componentes/det-co/det-co.component';
+import { RuletaComponent } from './componentes/ruleta/ruleta.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DetCoComponent } from './componentes/det-co/det-co.component';
     CommandComponent,
     DetalleComponent,
     DetCeComponent,
-    DetCoComponent
+    DetCoComponent,
+    RuletaComponent
   ],
   imports: [
     BrowserModule,
