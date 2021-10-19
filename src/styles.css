@@ -37,6 +37,7 @@ body {
 }
 .fondo-blan {
   background-color: white;
+  overflow: hidden;
 }
 .vertical-line {
   display: inline-block;
@@ -136,10 +137,9 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
   background-color: #333;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
+
   top: 0;
 }
 .nav-atras {

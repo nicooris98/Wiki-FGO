@@ -153,5 +153,4 @@ export class RuletaComponent implements OnInit {
         }
     );
   }
-
 }
