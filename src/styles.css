@@ -58,6 +58,16 @@ body {
 .width-100 {
   width: 100%;
 }
+.en-linea {
+  float: left;
+}
+.item {
+  background-color: rgba(98, 122, 110, 0.8);
+  border-radius: 5px;
+  display: inline-block;
+  border: black solid 1px;
+  cursor: pointer;
+}
 .btn-largo {
   display: block;
   width: 100%;
@@ -85,10 +95,14 @@ body {
 .in-bus {
   padding: 10px;
   font-size: 17px;
-  border: 1px solid grey;
+  background: transparent;
+  border: none;
   float: left;
-  width: 80%;
-  background: #f1f1f1;
+  width: 70%;
+  outline: none;
+}
+.transicion {
+  transition: opacity 2s linear;
 }
 .but-bus {
   float: left;
@@ -100,6 +114,11 @@ body {
   border: 1px solid grey;
   border-left: none; /* Prevent double borders */
   cursor: pointer;
+  border-radius: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 1px;
+  float: right;
 }
 .but-bus:hover {
   background: #0b7dda;
@@ -116,12 +135,21 @@ body {
 }
 .arts {
   background-color: lightblue;
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
 }
 .quick {
   background-color: lightgreen;
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
 }
 .buster {
   background-color: rgb(214, 65, 65);
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
 }
 .title {
   display: block;

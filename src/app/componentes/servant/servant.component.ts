@@ -2,11 +2,29 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Servant } from 'src/app/interfaces/servant';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetalleComponent } from '../detalle/detalle.component';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-servant',
   templateUrl: './servant.component.html',
-  styleUrls: ['./servant.component.css']
+  styleUrls: ['./servant.component.css'],
+  /* animations: [
+    trigger('changeDivAnim', [
+      state('initial', style({
+      })),
+      state('final', style({
+        transition: 'opacity 2s linear'
+      })),
+      transition('initial=>final', animate('3500ms')),
+    ]),
+  ] */
 })
 export class ServantComponent implements OnInit {
 
@@ -21,8 +39,13 @@ export class ServantComponent implements OnInit {
     np: [],
     cards: [],
     img: '',
-    skills: []
+    skills: [],
+    classPassive: [],
+    traits: []
   };
+
+  /* currentState: string = 'initial'; */
+
 
   constructor(
     public dialog: MatDialog
@@ -30,7 +53,14 @@ export class ServantComponent implements OnInit {
 
   ngOnInit(): void {
     this.parseStrJson();
+    /* console.log(this.currentState);
+    this.changeState();
+    console.log(this.currentState); */
   }
+
+  /* changeState() {
+    this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
+  } */
 
   parseStrJson(){
     //console.log('parseStrJson()')
@@ -46,6 +76,9 @@ export class ServantComponent implements OnInit {
     this.personaje.img = result['extraAssets']['charaGraph']['ascension']['1'];
     this.personaje.np = result['noblePhantasms'];
     this.personaje.skills = result['skills'];
+    this.personaje.classPassive = result['classPassive'];
+    this.personaje.traits = result['traits'];
+    /* console.log(this.personaje.classPassive); */
   }
 
   verDetalle(): void {
@@ -62,7 +95,9 @@ export class ServantComponent implements OnInit {
         np: this.personaje.np,
         skills: this.personaje.skills,
         atkMax: this.personaje.atkMax,
-        hpMax: this.personaje.hpMax
+        hpMax: this.personaje.hpMax,
+        classPassive: this.personaje.classPassive,
+        traits: this.personaje.traits
       }
     });
   }

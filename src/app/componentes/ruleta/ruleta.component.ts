@@ -9,7 +9,7 @@ import { Servant } from 'src/app/interfaces/servant';
 })
 export class RuletaComponent implements OnInit {
 
-  personajes: Servant[] = [
+  personajes?: Servant[];/* Servant[] = [
     {
       id: 0,
       name: '',
@@ -20,7 +20,8 @@ export class RuletaComponent implements OnInit {
       np: [],
       cards: [],
       img: '',
-      skills: []
+      skills: [],
+      classPassive: []
     },
     {
       id: 0,
@@ -32,7 +33,8 @@ export class RuletaComponent implements OnInit {
       np: [],
       cards: [],
       img: '',
-      skills: []
+      skills: [],
+      classPassive: []
     },
     {
       id: 0,
@@ -44,7 +46,8 @@ export class RuletaComponent implements OnInit {
       np: [],
       cards: [],
       img: '',
-      skills: []
+      skills: [],
+      classPassive: []
     },
     {
       id: 0,
@@ -56,7 +59,8 @@ export class RuletaComponent implements OnInit {
       np: [],
       cards: [],
       img: '',
-      skills: []
+      skills: [],
+      classPassive: []
     },
     {
       id: 0,
@@ -68,7 +72,8 @@ export class RuletaComponent implements OnInit {
       np: [],
       cards: [],
       img: '',
-      skills: []
+      skills: [],
+      classPassive: []
     },
     {
       id: 0,
@@ -80,9 +85,10 @@ export class RuletaComponent implements OnInit {
       np: [],
       cards: [],
       img: '',
-      skills: []
+      skills: [],
+      classPassive: []
     }
-  ];
+  ]; */
   listaPer: number[] = [];
   filtro: string[] = [];
   todosServ: string[] = [];
@@ -103,7 +109,7 @@ export class RuletaComponent implements OnInit {
     var result = JSON.parse(JSON.stringify(serv6));
     //console.log(result);
     //console.log(result[0]['name']);
-    for (let i = 0; i < result.length; i++) {
+    /* for (let i = 0; i < result.length; i++) {
       this.personajes[i].id = result[i]['collectionNo'];
       this.personajes[i].name = result[i]['name'];
       this.personajes[i].rarity = result[i]['rarity'];
@@ -114,7 +120,8 @@ export class RuletaComponent implements OnInit {
       this.personajes[i].img = result[i]['extraAssets']['charaGraph']['ascension']['1'];
       this.personajes[i].np = result[i]['noblePhantasms'];
       this.personajes[i].skills = result[i]['skills'];
-    }
+      this.personajes[i].classPassive = result[i]['classPassive'];
+    } */
   }
 
   getTeam(): void {

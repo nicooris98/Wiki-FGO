@@ -1,5 +1,6 @@
 import { Np } from './np';
 import { Skill } from './skill';
+import { Trait } from './trait';
 
 export interface Servant {
     id: number;
@@ -12,4 +13,6 @@ export interface Servant {
     cards: string[];
     img: string;
     skills: Skill[];
+    classPassive: Skill[];
+    traits: Trait[];
 }
