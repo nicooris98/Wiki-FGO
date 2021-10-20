@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { Servant } from 'src/app/servant';
+import { Servant } from 'src/app/interfaces/servant';
 
 @Component({
   selector: 'app-detalle',

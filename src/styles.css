@@ -50,6 +50,10 @@ body {
 }
 .text-izq {
   text-align: left;
+  float: none;
+}
+.float-none {
+  float: none;
 }
 .width-100 {
   width: 100%;
@@ -119,6 +123,12 @@ body {
 .buster {
   background-color: rgb(214, 65, 65);
 }
+.title {
+  display: block;
+  text-align: center;
+  background-color: white;
+  font-weight: bolder;
+}
 h1 {
   display: block;
   text-align: center;
@@ -170,6 +180,10 @@ li a:hover {
 .carta {
   font-size: 10px;
   text-align: left;
+}
+.np-card {
+  width: 256px;
+  height: 256px;
 }
 .btn-det {
   border-radius: 12px;

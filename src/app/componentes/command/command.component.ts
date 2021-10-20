@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Command } from 'src/app/command';
+import { Command } from 'src/app/interfaces/command';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetCoComponent } from '../det-co/det-co.component';
 

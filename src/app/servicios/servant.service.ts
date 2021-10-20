@@ -44,9 +44,6 @@ export class ServantService {
     this.data = this.commandData;
   }
 
-  /* getInfo(){
-    return this.http.get(this.data);
-  } */
 
   /**
    * Function to handle error when the server return an error

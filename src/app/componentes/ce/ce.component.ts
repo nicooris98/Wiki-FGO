@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Craft } from 'src/app/craft';
+import { Craft } from 'src/app/interfaces/craft';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetCeComponent } from '../det-ce/det-ce.component';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServantService } from 'src/app/servicios/servant.service';
-import { Servant } from 'src/app/servant';
+import { Servant } from 'src/app/interfaces/servant';
 
 @Component({
   selector: 'app-ruleta',

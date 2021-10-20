@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Servant } from 'src/app/servant';
+import { Servant } from 'src/app/interfaces/servant';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetalleComponent } from '../detalle/detalle.component';
 

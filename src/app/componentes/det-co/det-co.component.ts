@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { Command } from 'src/app/command';
+import { Command } from 'src/app/interfaces/command';
 
 @Component({
   selector: 'app-det-co',

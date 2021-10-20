@@ -1,3 +1,6 @@
+import { Np } from './np';
+import { Skill } from './skill';
+
 export interface Servant {
     id: number;
     name: string;
@@ -5,8 +8,8 @@ export interface Servant {
     class: string;
     atkMax: number;
     hpMax: number;
-    np: any[],
+    np: Np[];
     cards: string[];
     img: string;
-    skills: any[];
+    skills: Skill[];
 }
