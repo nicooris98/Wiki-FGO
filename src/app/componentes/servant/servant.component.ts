@@ -2,29 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Servant } from 'src/app/interfaces/servant';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetalleComponent } from '../detalle/detalle.component';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
 
 @Component({
   selector: 'app-servant',
   templateUrl: './servant.component.html',
-  styleUrls: ['./servant.component.css'],
-  /* animations: [
-    trigger('changeDivAnim', [
-      state('initial', style({
-      })),
-      state('final', style({
-        transition: 'opacity 2s linear'
-      })),
-      transition('initial=>final', animate('3500ms')),
-    ]),
-  ] */
+  styleUrls: ['./servant.component.css']
 })
 export class ServantComponent implements OnInit {
 
@@ -41,7 +23,10 @@ export class ServantComponent implements OnInit {
     img: '',
     skills: [],
     classPassive: [],
-    traits: []
+    traits: [],
+    cost: 0,
+    lvMax: 0,
+    attribute: ''
   };
 
   /* currentState: string = 'initial'; */
@@ -78,7 +63,9 @@ export class ServantComponent implements OnInit {
     this.personaje.skills = result['skills'];
     this.personaje.classPassive = result['classPassive'];
     this.personaje.traits = result['traits'];
-    /* console.log(this.personaje.classPassive); */
+    this.personaje.cost = result['cost'];
+    this.personaje.lvMax = result['lvMax'];
+    this.personaje.attribute = result['attribute'];
   }
 
   verDetalle(): void {
@@ -97,7 +84,10 @@ export class ServantComponent implements OnInit {
         atkMax: this.personaje.atkMax,
         hpMax: this.personaje.hpMax,
         classPassive: this.personaje.classPassive,
-        traits: this.personaje.traits
+        traits: this.personaje.traits,
+        cost: this.personaje.cost,
+        lvMax: this.personaje.lvMax,
+        attribute: this.personaje.attribute
       }
     });
   }

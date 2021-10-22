@@ -151,6 +151,21 @@ body {
   text-align: center;
   cursor: pointer;
 }
+.np-arts {
+  background-color: lightblue;
+  text-align: center;
+  cursor: pointer;
+}
+.np-quick {
+  background-color: lightgreen;
+  text-align: center;
+  cursor: pointer;
+}
+.np-buster {
+  background-color: rgb(214, 65, 65);
+  text-align: center;
+  cursor: pointer;
+}
 .title {
   display: block;
   text-align: center;
