@@ -7,7 +7,6 @@ import { RuletaComponent } from './componentes/ruleta/ruleta.component';
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'buscar', component: BuscadorComponent },
-  { path: 'ruleta', component: RuletaComponent },
 ];
 
 @NgModule({
