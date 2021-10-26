@@ -2,7 +2,7 @@
   <!-- <div class="column"> -->
     <div class="row">
       <div class="col-sm-4">
-        <img [src]="personaje.img" class="img-fluid" width="100%" height="auto" alt="">
+        <img [src]="personaje.img[1]" class="img-fluid" width="100%" height="auto" alt="">
       </div>
       <div class="col-sm-8">
         <p><b>ID:</b> {{ personaje.id }}</p>
@@ -19,8 +19,8 @@
         <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle">
       </div>
     </div>
-    
-    
+
+
   <!-- </div> -->
   <!-- <div class="column">
     <img src="https://pbs.twimg.com/profile_images/798356695860723712/-NpEsPw9_400x400.jpg"

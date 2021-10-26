@@ -11,7 +11,7 @@ export interface Servant {
     hpMax: number;
     np: Np[];
     cards: string[];
-    img: string;
+    img: string[];
     skills: Skill[];
     classPassive: Skill[];
     traits: Trait[];

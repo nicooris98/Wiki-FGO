@@ -1,5 +1,18 @@
 <h1 class="title" mat-dialog-title>{{ data.name }}</h1>
 <div mat-dialog-content>
+  <h2>Ascensiones</h2>
+  <div class="col-sm-3">
+    <img [src]="data.img[1]" class="img-fluid" width="100%" height="auto" alt="...">
+  </div>
+  <div class="col-sm-3">
+    <img [src]="data.img[2]" class="img-fluid" width="100%" height="auto" alt="...">
+  </div>
+  <div class="col-sm-3">
+    <img [src]="data.img[3]" class="img-fluid" width="100%" height="auto" alt="...">
+  </div>
+  <div class="col-sm-3">
+    <img [src]="data.img[4]" class="img-fluid" width="100%" height="auto" alt="...">
+  </div>
   <h2>Estadisticas:</h2>
   <ul class="fondo-blan text-centro">
     <li class="float-none">
@@ -22,7 +35,7 @@
   <div *ngFor="let trait of data.traits" class="item">
     <p>{{ trait.name }}</p>
   </div>
-      
+
 
   <h2>Cartas:</h2>
   <ul class="fondo-blan">
@@ -50,7 +63,7 @@
   </ul>
   <h2>Noble Phantasm:</h2>
   <ul class="fondo-blan">
-    <li *ngFor="let np of data.np">      
+    <li *ngFor="let np of data.np">
       <p class="text-centro np-{{ np.card }} width-100"><b>{{ np.name }}</b></p>
       <p><b>Tipo:</b> {{ np.type }}</p>
       <p><b>Rango:</b> {{ np.rank }}</p>
