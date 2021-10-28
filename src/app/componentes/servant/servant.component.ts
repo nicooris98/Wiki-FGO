@@ -58,7 +58,7 @@ export class ServantComponent implements OnInit {
     this.personaje.atkMax = result['atkMax'];
     this.personaje.hpMax = result['hpMax'];
     this.personaje.cards = result['cards'];
-    this.personaje.img = result['extraAssets']['charaGraph']['ascension']
+    this.personaje.img = result['extraAssets']['charaGraph']['ascension'];
     this.personaje.np = result['noblePhantasms'];
     this.personaje.skills = result['skills'];
     this.personaje.classPassive = result['classPassive'];

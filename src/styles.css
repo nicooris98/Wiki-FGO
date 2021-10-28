@@ -223,6 +223,7 @@ li a:hover {
 .carta {
   font-size: 10px;
   text-align: left;
+  margin-top: 10px;
 }
 .np-card {
   width: 256px;

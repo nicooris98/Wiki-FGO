@@ -20,7 +20,7 @@ export class ServantService {
   craftData = 'https://api.atlasacademy.io/export/NA/nice_equip.json';
   commandData = 'https://api.atlasacademy.io/export/NA/nice_command_code.json';
   data = '';
-  parametro: string = '0';
+  parametro: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -77,7 +77,7 @@ export class ServantService {
   /**
    * Function to GET what you want
    *
-   * 
+   *
    */
   public getListOfGroup(): Observable<any> {
 

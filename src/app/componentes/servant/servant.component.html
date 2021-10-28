@@ -9,13 +9,6 @@
         <p><b>Nombre:</b> {{ personaje.name }}</p>
         <p><b>Rareza:</b> {{ personaje.rarity }}*</p>
         <p><b>Clase:</b> {{ personaje.class | uppercase }}</p>
-        <!-- <p><b>Ataque a nivel maximo:</b> {{ personaje.atk }}</p>
-        <p><b>Vida a nivel maximo:</b> {{ personaje.hp }}</p> -->
-        <!-- <div class="row">
-          <div *ngFor="let item of personaje.cards">
-            <div class="card {{ item }} col-sm-2">{{ item | uppercase }}</div>
-          </div>
-        </div> -->
         <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle">
       </div>
     </div>

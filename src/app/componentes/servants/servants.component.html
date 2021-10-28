@@ -3,17 +3,24 @@
 </div>
 <div class="container">
     <div class="row">
+      <mat-paginator [length]="todosServ.length"
+              [pageSize]="page_size"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)='handlePage($event)'
+              aria-label="Select page">
+            </mat-paginator>
         <div class="col-sm-4">
             <div class="titulo"><h3>Servants</h3></div>
-            <app-servant *ngFor="let servant of todosServ" [servantStr]="servant"></app-servant><br>
+            <app-servant *ngFor="let servant of todosServ | paginate:page_size:page_number" [servantStr]="servant"></app-servant><br>
         </div>
         <div class="col-sm-4">
             <div class="titulo"><h3>Craft Essences</h3></div>
-            <app-ce *ngFor="let craft of todosCraft" [ceStr]="craft"></app-ce><br>
+            <app-ce *ngFor="let craft of todosCraft | paginate:page_size:page_number" [ceStr]="craft"></app-ce><br>
         </div>
         <div class="col-sm-4">
             <div class="titulo"><h3>Command Codes</h3></div>
-            <app-command *ngFor="let com of todosComm" [commandStr]="com"></app-command>
+            <app-command *ngFor="let com of todosComm | paginate:page_size:page_number" [commandStr]="com"></app-command>
         </div>
+
     </div>
 </div>

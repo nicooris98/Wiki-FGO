@@ -17,7 +17,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 import { DetCeComponent } from './componentes/det-ce/det-ce.component';
 import { DetCoComponent } from './componentes/det-co/det-co.component';
-import { RuletaComponent } from './componentes/ruleta/ruleta.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+import { PaginatePipe } from './pipes/paginate.pipe';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,16 @@ import { RuletaComponent } from './componentes/ruleta/ruleta.component';
     DetalleComponent,
     DetCeComponent,
     DetCoComponent,
-    RuletaComponent
+    PaginatePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    FormsModule
   ],
   providers: [
     MatDialog,
