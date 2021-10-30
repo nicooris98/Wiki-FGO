@@ -1,5 +1,6 @@
 export interface Craft {
     id: number;
+    collectionNo: number;
     name: string;
     rarity: string;
     cost: number;

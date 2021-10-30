@@ -11,7 +11,9 @@
           <p><b>Costo:</b> {{ carta.cost}}</p>
           <!-- <p><b>Nivel maximo:</b> {{ carta.lvMax }}</p> -->
           <!-- <p><b>Detalle:</b> {{ carta.detail }}</p> -->
-          <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle">
+          <!-- <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle"> -->
+          <button class="btn-det" (click)="verDetalle()"><i class="fa fa-list"></i></button>
+        <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart" style="color: red"></i></button>
         </div>
 
       </div>

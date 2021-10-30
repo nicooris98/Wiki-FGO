@@ -129,10 +129,10 @@ export class RuletaComponent implements OnInit {
     this.filtro = [];
     this.datos.setServant();
     this.datos
-      .getListOfGroup()
+      .getDatos()
       .subscribe(
         data => {
-          var result = []; 
+          var result = [];
           result = JSON.parse(JSON.stringify(data));
           var cant = result.length;
           this.listaPer.push(Math.round(Math.random()*cant));

@@ -52,15 +52,20 @@ export class ServantsComponent implements OnInit {
     this.filtro = [];
     this.personajes.setServant();
     this.personajes
-      .getListOfGroup()
+      .getDatos()
       .subscribe(
         data => {
           var result = [];
           result = JSON.parse(JSON.stringify(data));
+          //console.log(this.personajes.getParaID());
           for (let index = 0; index < result.length; index++) {
             //Si encuentra coincidencias las pone en el array filtro
-            if(result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase()) || result[index]['className'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
+            //console.log(result[index]['id'].toString());
+            if(this.personajes.getParaID().includes(result[index]['id'].toString()) || result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase()) || result[index]['className'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
               this.filtro.push(result[index]);
+              /* console.log(this.personajes.getParaID());
+              console.log('Result: '+result[index]['id'].toString()); */
+              //console.log('Entro');
             }
           }
           this.todosServ = this.filtro;
@@ -73,14 +78,14 @@ export class ServantsComponent implements OnInit {
     this.personajes.setCraft();
     this.filtroCraft = [];
     this.personajes
-      .getListOfGroup()
+      .getDatos()
       .subscribe(
         data => {
           var result = [];
           result = JSON.parse(JSON.stringify(data));
           for (let index = 0; index < result.length; index++) {
             //Si encuentra coincidencias las pone en el array filtro
-            if(result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
+            if(this.personajes.getParaID().includes(result[index]['id'].toString()) || result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
               this.filtroCraft.push(result[index]);
             }
           }
@@ -94,14 +99,14 @@ export class ServantsComponent implements OnInit {
     this.personajes.setCommand();
     this.filtroComm = [];
     this.personajes
-      .getListOfGroup()
+      .getDatos()
       .subscribe(
         data => {
           var result = [];
           result = JSON.parse(JSON.stringify(data));
           for (let index = 0; index < result.length; index++) {
             //Si encuentra coincidencias las pone en el array filtro
-            if(result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
+            if(this.personajes.getParaID().includes(result[index]['id'].toString()) || result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
               this.filtroComm.push(result[index]);
             }
           }

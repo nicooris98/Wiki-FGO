@@ -1,0 +1,18 @@
+<h1 class="title" mat-dialog-title>¿Desea eliminar este elemento de Favoritos?</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-sm-3">
+      <img [src]="data.img" class="img-fluid" width="100%" height="auto" alt="...">
+    </div>
+    <div class="col-sm-9">
+      <h2 style="text-align: left;">ID</h2>
+  <p>{{ data.id }}</p>
+  <h2 style="text-align: left;">Nombre</h2>
+  <p>{{ data.name }}</p>
+    </div>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="deleteFav(data.id)">Eliminar</button>
+</mat-dialog-actions>

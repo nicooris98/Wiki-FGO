@@ -4,6 +4,7 @@ import { Trait } from './trait';
 
 export interface Servant {
     id: number;
+    collectionNo: number;
     name: string;
     rarity: string;
     class: string;

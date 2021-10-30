@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Servant } from 'src/app/interfaces/servant';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetalleComponent } from '../detalle/detalle.component';
+import { ServantService } from 'src/app/servicios/servant.service';
+import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
 
 @Component({
   selector: 'app-servant',
@@ -13,6 +15,7 @@ export class ServantComponent implements OnInit {
   @Input() servantStr: string = '';
   personaje: Servant = {
     id: 0,
+    collectionNo: 0,
     name: '',
     rarity: '',
     class: '',
@@ -33,7 +36,8 @@ export class ServantComponent implements OnInit {
 
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private servant: ServantService
   ) { }
 
   ngOnInit(): void {
@@ -47,11 +51,43 @@ export class ServantComponent implements OnInit {
     this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
   } */
 
+  addFavorito(): void {
+    var keys = Object.keys(localStorage);
+    if(keys.includes(this.personaje.id.toString()))
+    {
+      this.dialog.open(FavConfirmComponent, {
+        width      : '100%',
+        maxWidth   : '600px',
+        height     : 'auto',
+        hasBackdrop: true,
+        maxHeight  : '700px',
+        data: {
+          id: this.personaje.id,
+          name: this.personaje.name,
+          img: this.personaje.img[1]
+        }
+      });
+    }else
+    {
+      localStorage.setItem(this.personaje.id.toString(), this.personaje.name);
+    }
+    /* for (let index = 0; index < this.servant.getParaID().length; index++) {
+      if(this.servant.getParaID()[index]==this.personaje.id.toString())
+      {
+        alert('Ya esta en favoritos');
+      }else
+      {
+        localStorage.setItem(this.personaje.id.toString(), this.personaje.name);
+      }
+    } */
+  }
+
   parseStrJson(){
     //console.log('parseStrJson()')
     var result = JSON.parse(JSON.stringify(this.servantStr));
     //console.log(result);
-    this.personaje.id = result['collectionNo'];
+    this.personaje.id = result['id'];
+    this.personaje.collectionNo = result['collectionNo'];
     this.personaje.name = result['name'];
     this.personaje.rarity = result['rarity'];
     this.personaje.class = result['className'];

@@ -16,11 +16,12 @@ export class ServantService {
 
   //servantData = 'https://raw.githubusercontent.com/WeebMogul/FGO-Wikia-Servant-Extractor/master/Total%20Servant%20Database.csv';
   //servantData = 'https://api.atlasacademy.io/export/JP/nice_servant_lang_en.json';
-  servantData = 'https://api.atlasacademy.io/export/NA/nice_servant.json';
-  craftData = 'https://api.atlasacademy.io/export/NA/nice_equip.json';
-  commandData = 'https://api.atlasacademy.io/export/NA/nice_command_code.json';
-  data = '';
+  servantData: string = 'https://api.atlasacademy.io/export/NA/nice_servant.json';
+  craftData: string = 'https://api.atlasacademy.io/export/NA/nice_equip.json';
+  commandData: string = 'https://api.atlasacademy.io/export/NA/nice_command_code.json';
+  data: string = '';
   parametro: string = '';
+  paraID: string[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -28,8 +29,20 @@ export class ServantService {
     this.parametro = valor;
   }
 
+  setParaID(valor: string): void {
+    this.paraID.push(valor);
+  }
+
   getParametro(): string{
     return this.parametro;
+  }
+
+  getParaID(): string[] {
+    return this.paraID;
+  }
+
+  clearParaID(): void {
+    this.paraID = [];
   }
 
   setServant(): void{
@@ -44,13 +57,17 @@ export class ServantService {
     this.data = this.commandData;
   }
 
+  public getDatos(): Observable<any> {
+    return this.http.get(this.data);
+  }
 
   /**
    * Function to handle error when the server return an error
    *
-   * @param error
+   *
    */
-   private handleError(error: HttpErrorResponse) {
+  //@param error
+  /*  private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error("An error occurred:", error.error.message);
@@ -62,29 +79,30 @@ export class ServantService {
     }
     // return an observable with a user-facing error message
     return throwError(error);
-  }
+  } */
 
   /**
    * Function to extract the data when the server return some
    *
-   * @param res
+   *
    */
-  private extractData(res: any) {
+  //@param res
+  /* private extractData(res: any) {
     let body = res;
     return body || {};
-  }
+  } */
 
   /**
    * Function to GET what you want
    *
    *
    */
-  public getListOfGroup(): Observable<any> {
+  /* public getListOfGroup(): Observable<any> {
 
     // Call the http GET
     return this.http.get(this.data, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
-  }
+  } */
 }

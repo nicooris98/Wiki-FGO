@@ -9,7 +9,9 @@
           <p><b>Nombre:</b> {{ command.name }}</p>
           <p><b>Rareza:</b> {{ command.rarity }}*</p>
           <!-- <p><b>Detalle:</b> {{ command.detail }}</p> -->
-          <input type="button" (click)="verDetalle()" class="btn-det" value="Detalle">
+          <!-- <input type="button" (click)="verDetalle()" class="btn-det" value="Detalle"> -->
+          <button class="btn-det" (click)="verDetalle()"><i class="fa fa-list"></i></button>
+        <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart" style="color: red"></i></button>
         </div>
 
       </div>

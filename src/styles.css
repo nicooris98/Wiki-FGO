@@ -98,7 +98,7 @@ body {
   background: transparent;
   border: none;
   float: left;
-  width: 70%;
+  width: 40%;
   outline: none;
 }
 .transicion {
@@ -239,4 +239,16 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-paginator {
+  background-color: rgba(128, 128, 128, 0.9);
+  text-align: center;
+  position: -webkit-sticky;
+  position: sticky;
+  display: inline-block;
+  overflow: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 12px;
+  color: white;
 }

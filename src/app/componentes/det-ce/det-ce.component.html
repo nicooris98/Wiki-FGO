@@ -1,6 +1,10 @@
 <h1 class="title" mat-dialog-title>{{ data.name }}</h1>
 <div mat-dialog-content>
   <h2>Estadisticas:</h2>
+  <div class="col-sm-3">
+    <img [src]="data.img" class="img-fluid" width="100%" height="auto" alt="...">
+  </div>
+
   <ul class="fondo-blan">
     <li class="float-none">
       <p class="text-izq"><b>Nivel Maximo: </b>{{ data.lvMax }}</p>

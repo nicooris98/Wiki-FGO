@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Craft } from 'src/app/interfaces/craft';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetCeComponent } from '../det-ce/det-ce.component';
+import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
 
 @Component({
   selector: 'app-ce',
@@ -13,6 +14,7 @@ export class CeComponent implements OnInit {
   @Input() ceStr: string = '';
   carta: Craft = {
     id: 0,
+    collectionNo: 0,
     name: '',
     rarity: '',
     cost: 0,
@@ -31,12 +33,36 @@ export class CeComponent implements OnInit {
     this.parseStrJson();
   }
 
+  addFavorito(): void {
+    //localStorage.setItem(this.personaje.id.toString(), this.personaje.name);
+    var keys = Object.keys(localStorage);
+    if(keys.includes(this.carta.id.toString()))
+    {
+      this.dialog.open(FavConfirmComponent, {
+        width      : '100%',
+        maxWidth   : '600px',
+        height     : 'auto',
+        hasBackdrop: true,
+        maxHeight  : '700px',
+        data: {
+          id: this.carta.id,
+          name: this.carta.name,
+          img: this.carta.img
+        }
+      });
+    }else
+    {
+      localStorage.setItem(this.carta.id.toString(), this.carta.name);
+    }
+  }
+
   parseStrJson(){
     //console.log('parseStrJson()')
     var result = JSON.parse(JSON.stringify(this.ceStr));
     var img = result['id'];
     //console.log(result);
-    this.carta.id = result['collectionNo'];
+    this.carta.id = result['id'];
+    this.carta.collectionNo = result['collectionNo'];
     this.carta.name = result['name'];
     this.carta.rarity = result['rarity'];
     this.carta.cost = result['cost'];
@@ -59,7 +85,8 @@ export class CeComponent implements OnInit {
         lvMax: this.carta.lvMax,
         atkMax: this.carta.atkMax,
         hpMax: this.carta.hpMax,
-        detail: this.carta.detail
+        detail: this.carta.detail,
+        img: this.carta.img
       }
     });
   }

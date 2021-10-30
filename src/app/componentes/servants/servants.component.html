@@ -3,7 +3,7 @@
 </div>
 <div class="container">
     <div class="row">
-      <mat-paginator [length]="todosServ.length"
+      <mat-paginator [length]="todosCraft.length + this.todosServ.length + this.todosComm.length"
               [pageSize]="page_size"
               [pageSizeOptions]="pageSizeOptions"
               (page)='handlePage($event)'

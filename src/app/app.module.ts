@@ -20,6 +20,7 @@ import { DetCoComponent } from './componentes/det-co/det-co.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { FavConfirmComponent } from './componentes/fav-confirm/fav-confirm.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     DetCeComponent,
     DetCoComponent,
     PaginatePipe,
+    FavConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
   providers: [
     MatDialog,
     OverlayModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   bootstrap: [AppComponent]
 })

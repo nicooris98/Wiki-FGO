@@ -9,7 +9,10 @@
         <p><b>Nombre:</b> {{ personaje.name }}</p>
         <p><b>Rareza:</b> {{ personaje.rarity }}*</p>
         <p><b>Clase:</b> {{ personaje.class | uppercase }}</p>
-        <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle">
+        <!-- <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle"> -->
+        <button class="btn-det" (click)="verDetalle()"><i class="fa fa-list"></i></button>
+        <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart" style="color: red"></i></button>
+        <!-- <input type="button" class="btn-det" (click)="addFavorito()" value="Favorito"><i class="fa fa-heart"></i> -->
       </div>
     </div>
 
