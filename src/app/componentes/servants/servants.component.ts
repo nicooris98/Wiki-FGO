@@ -36,7 +36,7 @@ export class ServantsComponent implements OnInit {
   }
 
   constructor(
-    private personajes: ServantService
+    private s_service: ServantService
     ) { }
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class ServantsComponent implements OnInit {
   }
 
   compara(index: number, result: any): boolean {
-    if(this.personajes.getParaID().includes(result[index]['id'].toString()) || result[index]['name'].toLowerCase().includes(this.personajes.getParametro().toLowerCase()))
+    if(this.s_service.getParaID().includes(result[index]['id'].toString()) || result[index]['name'].toLowerCase().includes(this.s_service.getParametro().toLowerCase()))
     {
       return true;
     }
@@ -61,8 +61,8 @@ export class ServantsComponent implements OnInit {
   getData(){
     //Buscar Servants
     this.filtro = [];
-    this.personajes.setServant();
-    this.personajes
+    this.s_service.setServant();
+    this.s_service
       .getDatos()
       .subscribe(
         data => {
@@ -72,7 +72,7 @@ export class ServantsComponent implements OnInit {
           for (let index = 0; index < result.length; index++) {
             //Si encuentra coincidencias las pone en el array filtro
             //console.log(result[index]['id'].toString());
-            if(this.compara(index, result) || result[index]['className'].toLowerCase().includes(this.personajes.getParametro().toLowerCase())){
+            if(this.compara(index, result) || result[index]['className'].toLowerCase().includes(this.s_service.getParametro().toLowerCase())){
               this.filtro.push(result[index]);
               /* console.log(this.personajes.getParaID());
               console.log('Result: '+result[index]['id'].toString()); */
@@ -86,9 +86,9 @@ export class ServantsComponent implements OnInit {
         }
     );
     //Buscar Craft Essences
-    this.personajes.setCraft();
+    this.s_service.setCraft();
     this.filtroCraft = [];
-    this.personajes
+    this.s_service
       .getDatos()
       .subscribe(
         data => {
@@ -107,9 +107,9 @@ export class ServantsComponent implements OnInit {
         }
     );
     //Buscar Command Codes
-    this.personajes.setCommand();
+    this.s_service.setCommand();
     this.filtroComm = [];
-    this.personajes
+    this.s_service
       .getDatos()
       .subscribe(
         data => {

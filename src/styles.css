@@ -260,3 +260,15 @@ body {
 .no-fav {
   color: black;
 }
+
+.row .asc{
+  width: 25%;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.activo {
+  background-color: #2196f3;
+}
+.no-activo {
+  background-color: white;
+}

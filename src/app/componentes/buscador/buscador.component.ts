@@ -9,9 +9,9 @@ import { ServantService } from 'src/app/servicios/servant.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  pasarParametro: string = this.servant.getParametro();//Es el parametro que paso a servants.component
+  pasarParametro: string = this.s_service.getParametro();//Es el parametro que paso a servants.component
 
-  constructor(private servant: ServantService)
+  constructor(private s_service: ServantService)
   {
     /* this.servant.setParametro('***'); */
     /* this.servant.setServant(); */
@@ -38,29 +38,29 @@ export class BuscadorComponent implements OnInit {
 
   buscar(parametro: string): void{
     //console.log(parametro);
-    console.log(this.servant.getParametro());
+    console.log(this.s_service.getParametro());
     var para = parametro.trim();
-    this.servant.clearParaID();
-    this.servant.setParametro(para);
-    this.pasarParametro = this.servant.getParametro();
-    console.log(this.servant.getParametro());
-    this.servant.salioFav();
+    this.s_service.clearParaID();
+    this.s_service.setParametro(para);
+    this.pasarParametro = this.s_service.getParametro();
+    console.log(this.s_service.getParametro());
+    this.s_service.salioFav();
   }
 
   mostrarFav(): void {
     var keys = Object.keys(localStorage);
     var i = keys.length;
     while ( i-- ) {
-      if(!this.servant.getParaID().includes(keys[i].toString()))
+      if(!this.s_service.getParaID().includes(keys[i].toString()))
       {
         //this.servant.setParaID(localStorage.getItem(keys[i]));
-        this.servant.setParaID(keys[i].toString());
+        this.s_service.setParaID(keys[i].toString());
       }
     }
     //console.log(this.servant.getParaID());
-    this.servant.setParametro('***');
-    this.pasarParametro = this.servant.getParametro();
-    this.servant.entroFav();
+    this.s_service.setParametro('***');
+    this.pasarParametro = this.s_service.getParametro();
+    this.s_service.entroFav();
   }
 
 }

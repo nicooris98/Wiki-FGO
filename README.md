@@ -9,12 +9,15 @@ Ejecutar `ng serve` o `ng serve -o` para que lo abra directamente. Se abre en `h
 ## Caracterisitcas
 
 - Busca servants por nombre o por clase.
-- Muestra la primera ascension y cartas del servant.
-- Busca craft essences por nombre y muestra su imagen.
+- Muestra las ascenciones y cartas del servant.
+- Muestra las skills y noble phatasm de los servants.
+- Busca craft essences por nombre, muestra su imagen y efecto.
+- Busca command codes por nombre, muestra su imagen y efecto.
+- Permite agregar favoritos y eliminarlos.
 
 ## Limitaciones
 
-- De momento solo muestra el id, nombre, clase, ataque a nivel maximo y vida al nivel maximo.
+- No muestra los multiplicadores de las skills ni noble phantasm.
 
 ## Code scaffolding
 

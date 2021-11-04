@@ -41,7 +41,7 @@ export class ServantComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private servant: ServantService
+    private s_service: ServantService
   ) { }
 
   ngOnInit(): void {
@@ -85,7 +85,7 @@ export class ServantComponent implements OnInit {
           localStorage.removeItem(this.personaje.id.toString());
           this.corazon = 'no-fav';
           //this.personaje = this.personajeBlanco;
-          if(this.servant.getFav())
+          if(this.s_service.getFav())
           {
             this.mostrar = false;//Deberia existir otra forma de que ande
           }
@@ -153,7 +153,8 @@ export class ServantComponent implements OnInit {
         cost: this.personaje.cost,
         lvMax: this.personaje.lvMax,
         attribute: this.personaje.attribute,
-        img: this.personaje.img
+        img: this.personaje.img,
+        class: this.personaje.class
       }
     });
   }

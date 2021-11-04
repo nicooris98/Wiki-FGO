@@ -1,9 +1,13 @@
 <h1 class="title" mat-dialog-title>{{ data.name }}</h1>
 <div mat-dialog-content>
-  <h2>Descripcion:</h2>
-  <div class="col-sm-3">
-    <img [src]="data.img" class="img-fluid" width="100%" height="auto" alt="...">
+  <div class="row">
+    <div class="col-sm-4">
+      <img [src]="data.img" class="img-fluid" width="100%" height="auto" alt="...">
+    </div>
+  <div class="col-sm-8">
+    <h2>Descripcion:</h2>
+    <p class="text-centro">{{ data.detail }}</p>
+  </div>
   </div>
 
-  <p class="text-centro">{{ data.detail }}</p>
 </div>
