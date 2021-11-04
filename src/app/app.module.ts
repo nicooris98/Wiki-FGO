@@ -21,6 +21,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { FavConfirmComponent } from './componentes/fav-confirm/fav-confirm.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { FavConfirmComponent } from './componentes/fav-confirm/fav-confirm.compo
     BrowserAnimationsModule,
     MatDialogModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [
     MatDialog,

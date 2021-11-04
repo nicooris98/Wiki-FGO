@@ -33,7 +33,9 @@ export class ServantComponent implements OnInit {
     traits: [],
     cost: 0,
     lvMax: 0,
-    attribute: ''
+    attribute: '',
+    atkGrowth: [],
+    hpGrowth: []
   };
 
   /* currentState: string = 'initial'; */
@@ -131,6 +133,10 @@ export class ServantComponent implements OnInit {
     this.personaje.cost = result['cost'];
     this.personaje.lvMax = result['lvMax'];
     this.personaje.attribute = result['attribute'];
+    this.personaje.atkGrowth = result['atkGrowth'];
+    this.personaje.hpGrowth = result['hpGrowth'];
+    /* console.log(this.personaje.atkGrowth);
+    console.log(this.personaje.hpGrowth); */
   }
 
   verDetalle(): void {
@@ -154,7 +160,9 @@ export class ServantComponent implements OnInit {
         lvMax: this.personaje.lvMax,
         attribute: this.personaje.attribute,
         img: this.personaje.img,
-        class: this.personaje.class
+        class: this.personaje.class,
+        atkGrowth: this.personaje.atkGrowth,
+        hpGrowth: this.personaje.hpGrowth
       }
     });
   }

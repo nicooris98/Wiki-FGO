@@ -52,6 +52,19 @@
   </ul>
     </div>
   </div>
+  <div class="row">
+    <h2>Aumento de Ataque y Vida</h2>
+    <div style="display: block;">
+      <canvas baseChart width="500" height="200"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </div>
   <h2>Traits:</h2>
   <div *ngFor="let trait of data.traits" class="item">
     <p>{{ trait.name }}</p>

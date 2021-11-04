@@ -19,4 +19,6 @@ export interface Servant {
     cost: number;
     lvMax: number;
     attribute: string;
+    atkGrowth: number[];
+    hpGrowth: number[];
 }
