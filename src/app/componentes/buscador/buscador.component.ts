@@ -44,6 +44,7 @@ export class BuscadorComponent implements OnInit {
     this.servant.setParametro(para);
     this.pasarParametro = this.servant.getParametro();
     console.log(this.servant.getParametro());
+    this.servant.salioFav();
   }
 
   mostrarFav(): void {
@@ -59,6 +60,7 @@ export class BuscadorComponent implements OnInit {
     //console.log(this.servant.getParaID());
     this.servant.setParametro('***');
     this.pasarParametro = this.servant.getParametro();
+    this.servant.entroFav();
   }
 
 }

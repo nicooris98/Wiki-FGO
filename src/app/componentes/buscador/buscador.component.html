@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="buscador container">
-    <input type="text" id="buscador" class="in-bus" (keyup.enter)="buscar(buscador.value)" placeholder="Ingrese Parametro" #buscador>
+    <input type="text" id="buscador" class="in-bus" (keyup.enter)="buscar(buscador.value)" autocomplete="off" #buscador>
     <button class="but-bus" (click)="mostrarFav()"><i class="	fa fa-heart"></i></button>
     <button class="but-bus" (click)="buscar(buscador.value)"><i class="fa fa-search"></i></button>
 

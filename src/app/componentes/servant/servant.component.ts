@@ -15,6 +15,7 @@ export class ServantComponent implements OnInit {
   @Input() servantStr: string = '';
 
   mostrar: boolean = true;
+  corazon: string = 'no-fav';
 
   personaje: Servant = {
     id: 0,
@@ -34,34 +35,24 @@ export class ServantComponent implements OnInit {
     lvMax: 0,
     attribute: ''
   };
-  /* personajeBlanco: Servant = {
-    id: 0,
-    collectionNo: 0,
-    name: '',
-    rarity: '',
-    class: '',
-    atkMax: 0,
-    hpMax: 0,
-    np: [],
-    cards: [],
-    img: [],
-    skills: [],
-    classPassive: [],
-    traits: [],
-    cost: 0,
-    lvMax: 0,
-    attribute: ''
-  }; */
 
   /* currentState: string = 'initial'; */
 
 
   constructor(
     public dialog: MatDialog,
+    private servant: ServantService
   ) { }
 
   ngOnInit(): void {
     this.parseStrJson();
+    var keys = Object.keys(localStorage);
+    for (let index = 0; index < keys.length; index++) {
+      if(keys[index]==this.personaje.id.toString())
+      {
+        this.corazon = 'fav';
+      }
+    }
     /* console.log(this.currentState);
     this.changeState();
     console.log(this.currentState); */
@@ -90,10 +81,14 @@ export class ServantComponent implements OnInit {
       ref.afterClosed().subscribe((result: boolean) => {
         if(result)
         {
-          console.log('Elimino: '+this.personaje.id);
+          //console.log('Elimino: '+this.personaje.id);
           localStorage.removeItem(this.personaje.id.toString());
+          this.corazon = 'no-fav';
           //this.personaje = this.personajeBlanco;
-          this.mostrar = false;//Deberia existir otra forma de que ande
+          if(this.servant.getFav())
+          {
+            this.mostrar = false;//Deberia existir otra forma de que ande
+          }
         }
         else
         {
@@ -103,6 +98,7 @@ export class ServantComponent implements OnInit {
     }else
     {
       localStorage.setItem(this.personaje.id.toString(), this.personaje.name);
+      this.corazon = 'fav';
     }
     /* for (let index = 0; index < this.servant.getParaID().length; index++) {
       if(this.servant.getParaID()[index]==this.personaje.id.toString())

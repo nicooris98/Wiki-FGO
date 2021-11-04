@@ -12,7 +12,7 @@
           <p><b>Clase:</b> {{ personaje.class | uppercase }}</p>
           <!-- <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle"> -->
           <button class="btn-det" (click)="verDetalle()"><i class="fa fa-list"></i></button>
-          <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart" style="color: red"></i></button>
+          <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart {{ corazon }}"></i></button>
           <!-- <input type="button" class="btn-det" (click)="addFavorito()" value="Favorito"><i class="fa fa-heart"></i> -->
         </div>
       </div>

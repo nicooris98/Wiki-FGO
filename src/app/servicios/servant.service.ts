@@ -22,8 +22,21 @@ export class ServantService {
   data: string = '';
   parametro: string = '';
   paraID: string[] = [];
+  estaFav: boolean = false;
 
   constructor(private http: HttpClient) { }
+
+  entroFav(): void {
+    this.estaFav = true;
+  }
+
+  salioFav(): void {
+    this.estaFav = false;
+  }
+
+  getFav(): boolean {
+    return this.estaFav;
+  }
 
   setParametro(valor: string): void{
     this.parametro = valor;

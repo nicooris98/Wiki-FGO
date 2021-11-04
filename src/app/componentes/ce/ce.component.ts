@@ -3,6 +3,7 @@ import { Craft } from 'src/app/interfaces/craft';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetCeComponent } from '../det-ce/det-ce.component';
 import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
+import { ServantService } from 'src/app/servicios/servant.service';
 
 @Component({
   selector: 'app-ce',
@@ -12,6 +13,8 @@ import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
 export class CeComponent implements OnInit {
 
   @Input() ceStr: string = '';
+
+  corazon: string = 'no-fav';
 
   mostrar: boolean = true;
 
@@ -29,11 +32,19 @@ export class CeComponent implements OnInit {
   };
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private s_service: ServantService
   ) { }
 
   ngOnInit(): void {
     this.parseStrJson();
+    var keys = Object.keys(localStorage);
+    for (let index = 0; index < keys.length; index++) {
+      if(keys[index]==this.carta.id.toString())
+      {
+        this.corazon = 'fav';
+      }
+    }
   }
 
   addFavorito(): void {
@@ -56,9 +67,13 @@ export class CeComponent implements OnInit {
       ref.afterClosed().subscribe((result: boolean) => {
         if(result)
         {
-          console.log('Elimino: '+this.carta.id);
+          //console.log('Elimino: '+this.carta.id);
           localStorage.removeItem(this.carta.id.toString());
-          this.mostrar = false;//Deberia existir otra forma de que ande
+          this.corazon = 'no-fav';
+          if(this.s_service.getFav())
+          {
+            this.mostrar = false;
+          }
         }
         else
         {
@@ -68,6 +83,7 @@ export class CeComponent implements OnInit {
     }else
     {
       localStorage.setItem(this.carta.id.toString(), this.carta.name);
+      this.corazon = 'fav';
     }
   }
 

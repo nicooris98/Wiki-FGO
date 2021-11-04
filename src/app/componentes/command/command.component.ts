@@ -3,6 +3,7 @@ import { Command } from 'src/app/interfaces/command';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DetCoComponent } from '../det-co/det-co.component';
 import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
+import { ServantService } from 'src/app/servicios/servant.service';
 
 @Component({
   selector: 'app-command',
@@ -15,6 +16,8 @@ export class CommandComponent implements OnInit {
 
   mostrar: boolean = true;
 
+  corazon: string = 'no-fav';
+
   command: Command = {
     id: 0,
     collectionNo: 0,
@@ -25,11 +28,19 @@ export class CommandComponent implements OnInit {
   }
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private s_service: ServantService
   ) { }
 
   ngOnInit(): void {
     this.parseStrJson();
+    var keys = Object.keys(localStorage);
+    for (let index = 0; index < keys.length; index++) {
+      if(keys[index]==this.command.id.toString())
+      {
+        this.corazon = 'fav';
+      }
+    }
   }
 
   addFavorito(): void {
@@ -52,9 +63,13 @@ export class CommandComponent implements OnInit {
       ref.afterClosed().subscribe((result: boolean) => {
         if(result)
         {
-          console.log('Elimino: '+this.command.id);
+          //console.log('Elimino: '+this.command.id);
           localStorage.removeItem(this.command.id.toString());
-          this.mostrar = false;//Deberia existir otra forma de que ande
+          this.corazon = 'no-fav';
+          if(this.s_service.getFav())
+          {
+            this.mostrar = false;
+          }
         }
         else
         {
@@ -64,6 +79,7 @@ export class CommandComponent implements OnInit {
     }else
     {
       localStorage.setItem(this.command.id.toString(), this.command.name);
+      this.corazon = 'fav';
     }
   }
 
