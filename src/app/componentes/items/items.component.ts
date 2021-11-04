@@ -5,9 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import {PageEvent} from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-servants',
-  templateUrl: './servants.component.html',
-  styleUrls: ['./servants.component.css']
+  selector: 'app-items',
+  templateUrl: './items.component.html',
 })
 export class ServantsComponent implements OnInit {
 
