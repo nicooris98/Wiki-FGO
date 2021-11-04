@@ -16,9 +16,19 @@ export class FavConfirmComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteFav(id: string): void {
+  /* deleteFav(id: string): void {
     localStorage.removeItem(id);
-    window.location.reload();
+    // return true
+    // dismiss
+    //window.location.reload();
+  } */
+
+  cancel(): boolean {
+    return false;
+  }
+
+  delete(): boolean {
+    return true;
   }
 
 }

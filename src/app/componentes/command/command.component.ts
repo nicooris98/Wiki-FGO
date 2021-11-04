@@ -12,6 +12,9 @@ import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
 export class CommandComponent implements OnInit {
 
   @Input() commandStr: string = '';
+
+  mostrar: boolean = true;
+
   command: Command = {
     id: 0,
     collectionNo: 0,
@@ -34,7 +37,7 @@ export class CommandComponent implements OnInit {
     var keys = Object.keys(localStorage);
     if(keys.includes(this.command.id.toString()))
     {
-      this.dialog.open(FavConfirmComponent, {
+      const ref = this.dialog.open(FavConfirmComponent, {
         width      : '100%',
         maxWidth   : '600px',
         height     : 'auto',
@@ -44,6 +47,18 @@ export class CommandComponent implements OnInit {
           id: this.command.id,
           name: this.command.name,
           img: this.command.img
+        }
+      });
+      ref.afterClosed().subscribe((result: boolean) => {
+        if(result)
+        {
+          console.log('Elimino: '+this.command.id);
+          localStorage.removeItem(this.command.id.toString());
+          this.mostrar = false;//Deberia existir otra forma de que ande
+        }
+        else
+        {
+          console.log('Eligio Cancelar');
         }
       });
     }else

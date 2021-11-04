@@ -12,6 +12,9 @@ import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
 export class CeComponent implements OnInit {
 
   @Input() ceStr: string = '';
+
+  mostrar: boolean = true;
+
   carta: Craft = {
     id: 0,
     collectionNo: 0,
@@ -38,7 +41,7 @@ export class CeComponent implements OnInit {
     var keys = Object.keys(localStorage);
     if(keys.includes(this.carta.id.toString()))
     {
-      this.dialog.open(FavConfirmComponent, {
+      const ref = this.dialog.open(FavConfirmComponent, {
         width      : '100%',
         maxWidth   : '600px',
         height     : 'auto',
@@ -48,6 +51,18 @@ export class CeComponent implements OnInit {
           id: this.carta.id,
           name: this.carta.name,
           img: this.carta.img
+        }
+      });
+      ref.afterClosed().subscribe((result: boolean) => {
+        if(result)
+        {
+          console.log('Elimino: '+this.carta.id);
+          localStorage.removeItem(this.carta.id.toString());
+          this.mostrar = false;//Deberia existir otra forma de que ande
+        }
+        else
+        {
+          console.log('Eligio Cancelar');
         }
       });
     }else

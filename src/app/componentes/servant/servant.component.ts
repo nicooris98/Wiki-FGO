@@ -13,6 +13,9 @@ import { FavConfirmComponent } from '../fav-confirm/fav-confirm.component';
 export class ServantComponent implements OnInit {
 
   @Input() servantStr: string = '';
+
+  mostrar: boolean = true;
+
   personaje: Servant = {
     id: 0,
     collectionNo: 0,
@@ -31,13 +34,30 @@ export class ServantComponent implements OnInit {
     lvMax: 0,
     attribute: ''
   };
+  /* personajeBlanco: Servant = {
+    id: 0,
+    collectionNo: 0,
+    name: '',
+    rarity: '',
+    class: '',
+    atkMax: 0,
+    hpMax: 0,
+    np: [],
+    cards: [],
+    img: [],
+    skills: [],
+    classPassive: [],
+    traits: [],
+    cost: 0,
+    lvMax: 0,
+    attribute: ''
+  }; */
 
   /* currentState: string = 'initial'; */
 
 
   constructor(
     public dialog: MatDialog,
-    private servant: ServantService
   ) { }
 
   ngOnInit(): void {
@@ -55,7 +75,7 @@ export class ServantComponent implements OnInit {
     var keys = Object.keys(localStorage);
     if(keys.includes(this.personaje.id.toString()))
     {
-      this.dialog.open(FavConfirmComponent, {
+      const ref = this.dialog.open(FavConfirmComponent, {
         width      : '100%',
         maxWidth   : '600px',
         height     : 'auto',
@@ -65,6 +85,19 @@ export class ServantComponent implements OnInit {
           id: this.personaje.id,
           name: this.personaje.name,
           img: this.personaje.img[1]
+        }
+      });
+      ref.afterClosed().subscribe((result: boolean) => {
+        if(result)
+        {
+          console.log('Elimino: '+this.personaje.id);
+          localStorage.removeItem(this.personaje.id.toString());
+          //this.personaje = this.personajeBlanco;
+          this.mostrar = false;//Deberia existir otra forma de que ande
+        }
+        else
+        {
+          console.log('Eligio Cancelar');
         }
       });
     }else

@@ -1,28 +1,31 @@
-<div class="ser carta"> <!-- [@changeDivAnim]=currentState -->
-  <!-- <div class="column"> -->
-    <div class="row">
-      <div class="col-sm-4">
-        <img [src]="personaje.img[1]" class="img-fluid" width="100%" height="auto" alt="">
+<div *ngIf="mostrar">
+  <div class="ser carta">
+    <!-- <div class="column"> -->
+      <div class="row">
+        <div class="col-sm-4">
+          <img [src]="personaje.img[1]" class="img-fluid" width="100%" height="auto" alt="">
+        </div>
+        <div class="col-sm-8">
+          <p><b>ID:</b> {{ personaje.id }}</p>
+          <p><b>Nombre:</b> {{ personaje.name }}</p>
+          <p><b>Rareza:</b> {{ personaje.rarity }}*</p>
+          <p><b>Clase:</b> {{ personaje.class | uppercase }}</p>
+          <!-- <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle"> -->
+          <button class="btn-det" (click)="verDetalle()"><i class="fa fa-list"></i></button>
+          <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart" style="color: red"></i></button>
+          <!-- <input type="button" class="btn-det" (click)="addFavorito()" value="Favorito"><i class="fa fa-heart"></i> -->
+        </div>
       </div>
-      <div class="col-sm-8">
-        <p><b>ID:</b> {{ personaje.id }}</p>
-        <p><b>Nombre:</b> {{ personaje.name }}</p>
-        <p><b>Rareza:</b> {{ personaje.rarity }}*</p>
-        <p><b>Clase:</b> {{ personaje.class | uppercase }}</p>
-        <!-- <input type="button" class="btn-det" (click)="verDetalle()" value="Detalle"> -->
-        <button class="btn-det" (click)="verDetalle()"><i class="fa fa-list"></i></button>
-        <button class="btn-det" (click)="addFavorito()"><i class="fa fa-heart" style="color: red"></i></button>
-        <!-- <input type="button" class="btn-det" (click)="addFavorito()" value="Favorito"><i class="fa fa-heart"></i> -->
-      </div>
-    </div>
 
 
-  <!-- </div> -->
-  <!-- <div class="column">
-    <img src="https://pbs.twimg.com/profile_images/798356695860723712/-NpEsPw9_400x400.jpg"
-      alt="" width="200px" height="200px"/>
-  </div> -->
+    <!-- </div> -->
+    <!-- <div class="column">
+      <img src="https://pbs.twimg.com/profile_images/798356695860723712/-NpEsPw9_400x400.jpg"
+        alt="" width="200px" height="200px"/>
+    </div> -->
+  </div>
 </div>
+
 <!-- <div class="container column">
     <img src="https://pbs.twimg.com/profile_images/798356695860723712/-NpEsPw9_400x400.jpg"
       alt="" width="200px" height="200px"/>

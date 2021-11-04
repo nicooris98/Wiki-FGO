@@ -16,9 +16,9 @@ export class ServantService {
 
   //servantData = 'https://raw.githubusercontent.com/WeebMogul/FGO-Wikia-Servant-Extractor/master/Total%20Servant%20Database.csv';
   //servantData = 'https://api.atlasacademy.io/export/JP/nice_servant_lang_en.json';
-  servantData: string = 'https://api.atlasacademy.io/export/NA/nice_servant.json';
-  craftData: string = 'https://api.atlasacademy.io/export/NA/nice_equip.json';
-  commandData: string = 'https://api.atlasacademy.io/export/NA/nice_command_code.json';
+  servantData: string = 'https://api.atlasacademy.io/export/NA/nice_servant.json';//cant: 268
+  craftData: string = 'https://api.atlasacademy.io/export/NA/nice_equip.json';//cant: 1112
+  commandData: string = 'https://api.atlasacademy.io/export/NA/nice_command_code.json';//cant: 51
   data: string = '';
   parametro: string = '';
   paraID: string[] = [];

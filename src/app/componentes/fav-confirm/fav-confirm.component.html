@@ -13,6 +13,6 @@
   </div>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="deleteFav(data.id)">Eliminar</button>
+  <button mat-button mat-dialog-close (click)="cancel()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="delete()" mat-dialog-close>Eliminar</button>
 </mat-dialog-actions>

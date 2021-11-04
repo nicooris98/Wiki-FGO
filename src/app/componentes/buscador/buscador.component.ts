@@ -19,7 +19,7 @@ export class BuscadorComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscar(this.pasarParametro);
-    var input = <HTMLInputElement>document.getElementById('buscador');
+    /* var input = <HTMLInputElement>document.getElementById('buscador');
     input.value = this.servant.getParametro();
     var keys = Object.keys(localStorage);
     var i = keys.length;
@@ -29,7 +29,7 @@ export class BuscadorComponent implements OnInit {
         //this.servant.setParaID(localStorage.getItem(keys[i]));
         this.servant.setParaID(keys[i].toString());
       }
-    }
+    } */
   }
 
   ngOnChanges(): void {
@@ -38,9 +38,12 @@ export class BuscadorComponent implements OnInit {
 
   buscar(parametro: string): void{
     //console.log(parametro);
+    console.log(this.servant.getParametro());
+    var para = parametro.trim();
     this.servant.clearParaID();
-    this.servant.setParametro(parametro);
+    this.servant.setParametro(para);
     this.pasarParametro = this.servant.getParametro();
+    console.log(this.servant.getParametro());
   }
 
   mostrarFav(): void {
