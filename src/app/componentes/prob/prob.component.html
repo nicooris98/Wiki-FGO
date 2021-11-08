@@ -1,0 +1,36 @@
+<div class="container">
+  <label>Cantidad de SQ</label>
+  <input [(ngModel)]="sq" type="number" (keyup)="calcularProb()"><br>
+  <div>Numero de Tiradas: {{tiradas}}</div><br>
+  <label id="type-radio-group-label">Voy a invocar un ...</label>
+<mat-radio-group
+  aria-labelledby="type-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="tipo">
+  <mat-radio-button class="example-radio-button" value="servant">
+    Servant
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button" value="ce">
+    Craft Essence
+  </mat-radio-button>
+</mat-radio-group>
+<div>Elegiste: {{tipo}}</div><br>
+<label id="rarity-radio-group-label">La rareza es ...</label>
+<mat-radio-group
+  aria-labelledby="rarity-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="rareza">
+  <mat-radio-button class="example-radio-button" value="5">
+    5*
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button" value="4">
+    4*
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button" value="3">
+    3*
+  </mat-radio-button>
+</mat-radio-group>
+<div>Elegiste: {{rareza}}*</div><br>
+<h2>Tu probabilidad de obtener al menos una copia es de:</h2><br>
+<h2>{{ probabilidad * 100 }} %</h2>
+</div>

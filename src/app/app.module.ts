@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { FavConfirmComponent } from './componentes/fav-confirm/fav-confirm.component';
 import { ChartsModule } from 'ng2-charts';
+import { ProbComponent } from './componentes/prob/prob.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { ChartsModule } from 'ng2-charts';
     DetCoComponent,
     PaginatePipe,
     FavConfirmComponent,
+    ProbComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { ChartsModule } from 'ng2-charts';
     MatDialogModule,
     MatPaginatorModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    MatRadioModule
   ],
   providers: [
     MatDialog,
