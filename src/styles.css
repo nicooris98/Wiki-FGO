@@ -272,3 +272,20 @@ body {
 .no-activo {
   background-color: white;
 }
+.but-prob {
+  width: 20%;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  border-radius: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 1px;
+}
+.in-prob {
+  border-radius: 12px;
+}

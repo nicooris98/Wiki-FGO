@@ -12,6 +12,7 @@ export class ProbComponent implements OnInit {
   probabilidad: number = 0;
   tiradas: number;
   sq: number = 0;
+  cantidad: string = '';
 
   campos: boolean = false;
 
@@ -26,7 +27,7 @@ export class ProbComponent implements OnInit {
   }
 
   comprobar(): boolean {
-    if(this.tipo == '' && this.rareza == '' && this.sq == null)
+    if(this.tipo == '' && this.rareza == '' && this.cantidad == '' && this.sq == null)
     {
       return false;
     }
@@ -52,10 +53,24 @@ export class ProbComponent implements OnInit {
         case 'servant':
           switch (this.rareza) {
             case '5':
-              this.probabilidad = this.probServ5();
+              if(this.cantidad == '1')
+              {
+                this.probabilidad = this.probServ51();
+              }
+              if(this.cantidad == '2')
+              {
+                this.probabilidad = this.probServ52();
+              }
               break;
             case '4':
-              this.probabilidad = this.probServ4();
+              if(this.cantidad == '1')
+              {
+                this.probabilidad = this.probServ41();
+              }
+              if(this.cantidad == '2')
+              {
+                this.probabilidad = this.probServ42();
+              }
               break;
             case '3':
               this.probabilidad = this.probServ3();
@@ -67,7 +82,14 @@ export class ProbComponent implements OnInit {
         case 'ce':
           switch (this.rareza) {
             case '5':
-              this.probabilidad = this.probCe5();
+              if(this.cantidad == '1')
+              {
+                this.probabilidad = this.probCe51();
+              }
+              if(this.cantidad == '2')
+              {
+                this.probabilidad = this.probCe52();
+              }
               break;
             case '4':
               this.probabilidad = this.probCe4();
@@ -85,20 +107,32 @@ export class ProbComponent implements OnInit {
     }
   }
 
-  probServ5(): number {
+  probServ51(): number {
     return (1-Math.pow((1-0.007), this.tiradas));
   }
 
-  probServ4(): number {
+  probServ52(): number {
+    return (1-Math.pow((1-0.004), this.tiradas));
+  }
+
+  probServ41(): number {
     return (1-Math.pow((1-0.0150), this.tiradas));
+  }
+
+  probServ42(): number {
+    return (1-Math.pow((1-0.0120), this.tiradas));
   }
 
   probServ3(): number {
     return (1-Math.pow((1-0.04), this.tiradas));
   }
 
-  probCe5(): number {
+  probCe51(): number {
     return (1-Math.pow((1-0.0280), this.tiradas));
+  }
+
+  probCe52(): number {
+    return (1-Math.pow((1-0.0140), this.tiradas));
   }
 
   probCe4(): number {

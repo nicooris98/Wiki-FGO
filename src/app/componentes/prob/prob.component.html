@@ -1,8 +1,8 @@
 <div class="container">
-  <label>Cantidad de SQ</label>
-  <input [(ngModel)]="sq" type="number" (keyup)="calcularProb()"><br>
+  <label>Cantidad de SQ</label><br>
+  <input class="in-prob" [(ngModel)]="sq" type="number" (keyup)="calcularTiradas()"><br>
   <div>Numero de Tiradas: {{tiradas}}</div><br>
-  <label id="type-radio-group-label">Voy a invocar un ...</label>
+  <label id="type-radio-group-label">Voy a invocar un ...</label><br>
 <mat-radio-group
   aria-labelledby="type-radio-group-label"
   class="example-radio-group"
@@ -15,7 +15,7 @@
   </mat-radio-button>
 </mat-radio-group>
 <div>Elegiste: {{tipo}}</div><br>
-<label id="rarity-radio-group-label">La rareza es ...</label>
+<label id="rarity-radio-group-label">La rareza es ...</label><br>
 <mat-radio-group
   aria-labelledby="rarity-radio-group-label"
   class="example-radio-group"
@@ -29,8 +29,22 @@
   <mat-radio-button class="example-radio-button" value="3">
     3*
   </mat-radio-button>
+  <div>Elegiste: {{rareza}}*</div><br>
 </mat-radio-group>
-<div>Elegiste: {{rareza}}*</div><br>
+<label id="cant-radio-group-label">¿Cuantos Servants/CEs con la misma rareza estan en rate up en el banner?</label><br>
+<mat-radio-group
+  aria-labelledby="cant-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="cantidad">
+  <mat-radio-button class="example-radio-button" value="1">
+    1
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button" value="2">
+    2
+  </mat-radio-button>
+</mat-radio-group>
+<div>Elegiste: {{cantidad}}</div><br>
+<button class="but-prob" (click)="calcularProb()">Calcular</button>
 <h2>Tu probabilidad de obtener al menos una copia es de:</h2><br>
 <h2>{{ probabilidad * 100 }} %</h2>
 </div>
