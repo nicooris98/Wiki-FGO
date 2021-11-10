@@ -19,6 +19,7 @@ Los datos vienen de una api: https://api.atlasacademy.io
 - Busca craft essences por nombre, muestra su imagen y efecto.
 - Busca command codes por nombre, muestra su imagen y efecto.
 - Permite agregar favoritos y eliminarlos.
+- Calcula la probabilidad de obtener un servant o craft essence.
 
 ## Limitaciones
 
