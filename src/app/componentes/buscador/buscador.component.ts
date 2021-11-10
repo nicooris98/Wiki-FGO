@@ -38,12 +38,12 @@ export class BuscadorComponent implements OnInit {
 
   buscar(parametro: string): void{
     //console.log(parametro);
-    console.log(this.s_service.getParametro());
+    //console.log(this.s_service.getParametro());
     var para = parametro.trim();
     this.s_service.clearParaID();
     this.s_service.setParametro(para);
     this.pasarParametro = this.s_service.getParametro();
-    console.log(this.s_service.getParametro());
+    //console.log(this.s_service.getParametro());
     this.s_service.salioFav();
   }
 

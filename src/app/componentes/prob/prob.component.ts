@@ -22,7 +22,7 @@ export class ProbComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    console.log('entro');
+    //console.log('entro');
     this.calcularProb();
   }
 

@@ -62,11 +62,24 @@ body {
   float: left;
 }
 .item {
-  background-color: rgba(98, 122, 110, 0.8);
+  background-color: rgb(57, 175, 57);
   border-radius: 5px;
   display: inline-block;
   border: black solid 1px;
   cursor: pointer;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: white;
+  padding: 0px 15px;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1), 0 6px 5px 0 rgba(0,0,0,0.1);
+  border: 0px;
+}
+.item-card {
+  border-radius: 5px;
+  display: inline-block;
+  border: 0px;
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1), 0 6px 5px 0 rgba(0,0,0,0.1);
 }
 .btn-largo {
   display: block;
@@ -150,6 +163,7 @@ body {
   width: 20%;
   text-align: center;
   cursor: pointer;
+  color: white;
 }
 .np-arts {
   background-color: lightblue;
@@ -165,6 +179,7 @@ body {
   background-color: rgb(214, 65, 65);
   text-align: center;
   cursor: pointer;
+  color: white;
 }
 .title {
   display: block;
@@ -263,14 +278,17 @@ body {
 
 .row .asc{
   width: 25%;
-  border-radius: 12px;
+  border-radius: 6px;
   cursor: pointer;
+  border: 0px solid white;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1), 0 6px 5px 0 rgba(0,0,0,0.1);
 }
 .activo {
   background-color: #2196f3;
+  color: white;
 }
 .no-activo {
-  background-color: white;
+  /* background-color: white; */
 }
 .but-prob {
   width: 20%;
